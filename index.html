@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="clock">
+    <div class="inner">
+      <div class="time" id="clock"></div>
+      <div class="date" id="date"></div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h1>Todo List</h1>
+    <div class="input-container">
+      <input class="todo-input" placeholder="Add a new task...">
+      <button class="add-button">
+        <i class="fa fa-plus-circle"></i>
+      </button>
+    </div>
+    <div class="filters">
+      <div class="filter" data-filter="completed">Complete</div>
+      <div class="filter" data-filter="pending">Incomplete</div>
+      <div class="delete-all">Delete All</div>
+    </div>
+    <div class="todos-container">
+      <ul class="todos"></ul>
+      <img class="empty-image" src="./empty.svg">
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+  <script>
+    // JavaScript for the digital clock and date
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').textContent = timeString;
+
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const dayOfWeek = days[now.getDay()];
+      const month = months[now.getMonth()];
+      const dayOfMonth = now.getDate();
+      const year = now.getFullYear();
+      const dateString = `${dayOfWeek}, ${month} ${dayOfMonth}, ${year}`;
+      document.getElementById('date').textContent = dateString;
+    }
+
+    // Update the clock and date every second
+    setInterval(updateClock, 1000);
+
+    // Initial call to display the clock and date immediately
+    updateClock();
+  </script>
+</body>
+</html>
+

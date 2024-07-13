@@ -1,0 +1,211 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(./background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 20px;
+  position: relative; /* Ensure body is positioned relative for absolute positioning */
+}
+
+.clock {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(130, 207, 235, 0.199); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  color: #fff; /* White text color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Simple and neutral font */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1; /* Ensure it's above the main content */
+}
+
+.clock .inner {
+  background-color: rgba(0, 0, 0, 0.473); /* Darker inner background */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.clock .time {
+  font-size: 24px; /* Larger font size */
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.clock .date {
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.8; /* Slightly reduced opacity */
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  padding: 30px;
+  background: transparent;
+  border: 2px solid #b7deeca1;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  z-index: 2; /* Ensure main container is above clock */
+  overflow: hidden; /* Ensure content does not overflow */
+}
+
+h1 {
+  color: #eee;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  outline: none;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #b7d8eca1;
+  border-radius: 30px;
+  color: #eee;
+  font-size: 16px;
+}
+
+.todo-input::placeholder {
+  color: #bfbfbf;
+}
+
+.add-button {
+  border: none;
+  outline: none;
+  background: #b7d3eca1;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-image {
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.todos-container {
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #333 transparent; /* Scrollbar color */
+}
+
+.todos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo {
+  background-color: #463c7b;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 2px solid #90dbeea1;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.todo:hover {
+  background-color: #b7ddeca1;
+}
+
+.todo label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.todo-name {
+  flex: 1;
+  color: #eee;
+  margin-right: 10px;
+}
+
+.todo-name.checked {
+  text-decoration: line-through;
+}
+
+.timestamp,
+.completed-at {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.completed-at {
+  color: #0f0;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #eee;
+  font-size: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.filter {
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 2px solid #9bcbf7a9;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter.active,
+.filter:hover {
+  background-color: #b7d3eca1;
+}
+
+.delete-all {
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-all:hover {
+  background-color: #b7d7eca1;
+}
